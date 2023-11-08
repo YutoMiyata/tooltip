@@ -1,0 +1,46 @@
+.main-title {
+    color: blue;
+}
+
+.label {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .tooltip-toggle {
+    cursor: pointer;
+    position: relative;
+}
+
+/* Tooltip text container */
+.tooltip-toggle::before {
+position: absolute;
+top: 0px;
+left: 30px;
+background-color: #2B222A;
+/* border-radius: 5px; */
+color: #fff;
+content: attr(aria-label);
+padding: 1rem;
+text-transform: none;
+transition: all 0.5s ease;
+width: 160px;
+}
+
+/* Setting up the transition */
+.tooltip-toggle::before{
+    color: #efefef;
+    font-family: monospace;
+    font-size: 16px;
+    opacity: 0;
+    pointer-events: none;
+    text-align: center;
+    }
+
+/* Triggering the transition */
+  .tooltip-toggle:focus::before,
+  .tooltip-toggle:hover::before {
+    opacity: 1;
+    transition: all 0.75s ease;
+  }

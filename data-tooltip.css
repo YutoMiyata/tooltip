@@ -1,0 +1,91 @@
+.main-title {
+    color: blue;
+}
+
+
+/* -------------------------------ツールチップのブロック ----------------------------------------*/
+
+.tooltip {
+    position: relative;
+    cursor: pointer;
+  }
+  
+  /* ツールチップ全体の設定 */
+  .tooltip::before,
+  .tooltip::after {
+    position: absolute;
+    opacity: 0;
+    transition: all 0.3s;
+  }
+  
+  /* 吹き出しのひげ部分 */
+  .tooltip::before {
+    content: "";
+    border: 10px solid transparent;
+    border-bottom-color: #000;
+    top: 10px;
+    left: 10px;
+  }
+  
+  /* 吹き出しの本体 */
+  .tooltip::after {
+    content: attr(data-tooltip);
+    display: block;
+    padding: 7px 13px;
+    background: #000;
+    border-radius: 3px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    top: 30px;
+    left: 0;
+  }
+  
+  /* マウスホバーしたときの設定 */
+  .tooltip:hover::before{
+    top: 16px;
+    opacity: 1;
+  }
+  
+  .tooltip:hover::after{
+    top: 36px;
+    opacity: 1;
+  }
+
+  /* --------------------------------------------------------------------------------------- */
+
+  /* ----------------------データ属性のcss --------------------*/
+
+  [test] {
+    color: red;
+  }
+
+  /* ツールチップ右側に表示 */
+  /* カテゴリツールチップを表示するためのスタイル */
+/* カテゴリツールチップを右側に表示するためのスタイル */
+.category-tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+}
+
+.category-tooltip::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  background-color: #333;
+  color: #fff;
+  padding: 5px 10px;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.3s;
+  top: 50%;
+  left: 125%; /* 右側に配置 */
+  transform: translateY(-50%);
+  width: 100px;
+}
+
+/* ホバー時にカテゴリツールチップを表示 */
+.category-tooltip:hover::after {
+  opacity: 1;
+  pointer-events: auto;
+}
